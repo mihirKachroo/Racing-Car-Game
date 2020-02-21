@@ -219,8 +219,7 @@ void draw() {
     //Highlights (by changing the colour) the option which the user is hovering over
     if (mouseX<398 && mouseX>100 && mouseY<503 && mouseY>196) {
       fill(49);
-    }
-    else {
+    } else {
       fill(0);
     }
     //Creates the left rectangle
@@ -232,8 +231,7 @@ void draw() {
     //Highlights (by changing the colour) the option which the user is hovering over
     if (mouseX<852 && mouseX>552 && mouseY<500 && mouseY>196) {
       fill(190);
-    } 
-    else {
+    } else {
       fill(255);
     }
     //Creates the right rectangle
@@ -279,8 +277,7 @@ void draw() {
       //Alternates between creating a red and white stripe
       if (a%2==0) {    //If a is even, it creates a red stripe
         fill(220, 60, 48);
-      } 
-      else {     //If a is odd, it creates a white stripe
+      } else {     //If a is odd, it creates a white stripe
         fill(255);
       }
       //Draws the stripes
@@ -332,22 +329,17 @@ void draw() {
     rectMode(CORNER);
     if (flashingSun != true) {
       fill(5, 60, 90);
-    } 
-    else {
+    } else {
       fill(90, 205, 249);
     }
     rect(0, 0, 950, 325.58);
 
-    //Uses mouse X and Y values to check if it is within the radius of the sun
-    if (mousePressed && dist(width/2, height/2.15, mouseX, mouseY) < 130) {
-      flashingSun = !flashingSun; //Flips the boolean
-    }
+
 
     //Makes the sun orange or transparent depending on if flashingSun is true or false
     if (flashingSun) {
       fill(random(195, 220), random(20, 85), 30);
-    } 
-    else {
+    } else {
       noFill();
     }
     ellipse(width/2, height/2.15-70, 130, 130);
@@ -372,8 +364,7 @@ void draw() {
       if (obstacleChoice < 1) { //Creates a rock on the right side
         rockSide=500;   
         rockX+=1.2;
-      } 
-      else { //Creates a rock on the left side
+      } else { //Creates a rock on the left side
         rockSide = 450;
         rockX -= 1.2;
       }
@@ -385,9 +376,7 @@ void draw() {
       if (rockX+rockSide-25<445+carDirection && rockX+rockSide+25>290+carDirection && height/2.15+rockY<678 && height/2.15+rockY>618) {
         endGame=true;
       }
-    } 
-    
-    else if (obstacleChoice<=3) { //Creates the cow obstacle
+    } else if (obstacleChoice<=3) { //Creates the cow obstacle
       rectMode(RADIUS);
       stroke(0);
       strokeWeight(1);
@@ -444,8 +433,7 @@ void draw() {
     if (!mouseControl) {
       if (keyPressed && keyCode == RIGHT) {
         carDirection+=15;
-      } 
-      else if (keyPressed && keyCode==LEFT) {
+      } else if (keyPressed && keyCode==LEFT) {
         fill(255);
         carDirection-=15;
       }
@@ -644,7 +632,7 @@ void draw() {
     startGame = false; //Stop the game
     startScreen = false; //Stop the start screen
     background(27, 169, 8); //Change background to green
-    
+
     //Create random confetti
     for ( int n = 0; n < 50; n++ ) {
       float x = random( width );
@@ -652,9 +640,9 @@ void draw() {
       fill( random(255), random(255), random(255) );
       ellipse( x, y, 40, 40 );
     }
-    
+
     delay(210);
-    
+
     //Create an expanding "You Win!" text
     fill(255);
     textAlign(CENTER);
@@ -675,7 +663,7 @@ void draw() {
     fill(200, 10, 10);
     explosionSize *= 1.1;
     ellipse(width/2, height/2, explosionSize, explosionSize);
-    
+
     //When the explosion reaches the width, print the ending and reset the program
     if (explosionSize>=1100) {
       println(ending);
@@ -689,7 +677,7 @@ public void keyPressed() {
   if (keyPressed && key=='e' || key=='E') {
     endGame = true;
   }
-  
+
   //Button to pause and resume the game
   if (keyPressed && key=='p' || key=='P') {
     //If the pauseCounter is even, pause the game
@@ -710,4 +698,11 @@ public void keyPressed() {
    ellipse (mouseX, mouseY, 2, 2);
    text("x: "+ mouseX+ "     y: "+ mouseY, mouseX, mouseY);
    }*/
+}
+
+public void mousePressed() {
+  //Uses mouse X and Y values to check if it is within the radius of the sun
+  if (mousePressed && dist(width/2, height/2.15, mouseX, mouseY) < 130) {
+    flashingSun = !flashingSun; //Flips the boolean
+  }
 }
